@@ -4,30 +4,20 @@ using UnityEngine;
 
 public class PlayerSR : MonoBehaviour
 {
-    [SerializeField]
-    private float playerSpeed = 25f;
-
-    [SerializeField]
-    private bool playerOne = true;
-
-    [SerializeField]
-    private Camera mainCamera;
-
-    [SerializeField]
-    private float gameStartDelay = 3f;
-
-    [SerializeField]
-    private Vector2 spawnPoint;
+    public float playerSpeed = 25f;
+    public bool playerOne = true;
+    public Camera mainCamera;
+    public float gameStartDelay = 3f;
+    public Vector2 spawnPoint;
 
     private float vertical;
-
     private float cameraBorder;
 
 
     // Start is called before the first frame update
     private void Awake() 
     {
-        mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        mainCamera = Camera.main;
         //Get camera size to limit the movement of the player
         cameraBorder = mainCamera.orthographicSize;
 

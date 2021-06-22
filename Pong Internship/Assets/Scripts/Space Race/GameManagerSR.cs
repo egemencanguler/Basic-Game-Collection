@@ -5,41 +5,21 @@ using UnityEngine.UI;
 
 public class GameManagerSR : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject deadlyBall;
+    public GameObject deadlyBall;
+    public float frequency;
+    public Vector2[] spawnSections;
+    public float gameLength = 45f;
+    public PlayerSR[] playerScripts;
+    public Text[] playerScoreTexts;
 
-    [SerializeField]
-    private float frequency;
+    private float lastTimeOfSpawn;
+    private int playerOneScore = 0;
+    private int playerTwoScore = 0;
 
-    [SerializeField]
-    private float endOfGameTime = 300;
-
-    [SerializeField]
-    private Vector2[] spawnSections;
-    
-    [SerializeField]
-    private float gameLength = 45f;
-    [SerializeField]
-    private PlayerSR[] playerScripts;
-    [SerializeField]
-    private Text[] playerScoreTexts;
-
-    private float lastTimeOfSpawn = 0;
-
-    private Vector2 playerScore = new Vector2(0,0);
-
-    private void Awake() 
+    private void Start() 
     {
-        playerScripts[0] = transform.Find("Player 1").GetComponent<PlayerSR>();
-        playerScripts[1] = transform.Find("Player 2").GetComponent<PlayerSR>();  
-
-        playerScoreTexts[0] = transform.Find("Canvas").transform.Find("Player 1 Score").GetComponent<Text>();
-        playerScoreTexts[1] = transform.Find("Canvas").transform.Find("Player 2 Score").GetComponent<Text>();
-        playerScoreTexts[2] = transform.Find("Canvas").transform.Find("Final").GetComponent<Text>();  
-        playerScoreTexts[3] = transform.Find("Canvas").transform.Find("Timer").GetComponent<Text>(); 
- 
+        lastTimeOfSpawn = frequency;    
     }
-
     void Update()
     {
         //The time control states the games condition.
@@ -59,40 +39,45 @@ public class GameManagerSR : MonoBehaviour
 
     void SpawnDeadlyBalls(float freq)
     {
+        //TIMER
         //Spawn in different points of an interval with a frequency
-        if(Time.time - lastTimeOfSpawn >= frequency)
+        lastTimeOfSpawn -= Time.deltaTime;
+        if(lastTimeOfSpawn <= 0f)
         {
             Instantiate(deadlyBall,new Vector3(spawnSections[0].x,Random.Range(spawnSections[1].y,spawnSections[0].y)),Quaternion.identity);
             Instantiate(deadlyBall,new Vector3(-spawnSections[0].x,Random.Range(spawnSections[1].y,spawnSections[0].y)),Quaternion.identity);
-            lastTimeOfSpawn = Time.time;
+            lastTimeOfSpawn = frequency;
         }
     }
 
     void PlayerScore()
     {
+        Vector3 playerOnePosition = playerScripts[0].transform.position;
+        Vector3 playerTwoPosition = playerScripts[1].transform.position;
+
         //Score implementation
         if(playerScripts[0].transform.position.y > spawnSections[0].y)
         {
-            playerScore.x++;
-            playerScoreTexts[0].text ="" + playerScore.x;
+            playerOneScore++;
+            playerScoreTexts[0].text ="" + playerOneScore;
             playerScripts[0].PlayerReset();
         }
 
         if(playerScripts[1].transform.position.y > spawnSections[0].y)
         {
-            playerScore.y++;                        
-            playerScoreTexts[1].text ="" + playerScore.y;
+            playerTwoScore++;                        
+            playerScoreTexts[1].text ="" + playerTwoScore;
             playerScripts[1].PlayerReset();
         }
     }
 
     void WinCondition()
     {
-        if(playerScore.x > playerScore.y)
+        if(playerOneScore > playerTwoScore)
         {
             playerScoreTexts[2].text = "Player 1 Won!!!";
         }
-        else if (playerScore.x < playerScore.y)
+        else if (playerOneScore < playerTwoScore)
         {
             playerScoreTexts[2].alignment = TextAnchor.UpperRight;
             playerScoreTexts[2].text = "Player 2 Won!!!";

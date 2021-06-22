@@ -155,10 +155,10 @@ RectTransform:
   m_Father: {fileID: 1628104362}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 167.44519}
-  m_SizeDelta: {x: 160, y: 55.1096}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 100, y: -65.55481}
+  m_SizeDelta: {x: 160, y: 55.10959}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1100373
 MonoBehaviour:
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 56943422}
   m_Layer: 0
   m_Name: Game Manager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,10 +251,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballObject: {fileID: 5747969396650124035, guid: c66beae0825b87c4ca3ccf5f171ee5ee, type: 3}
   scoreText:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2046152562}
+  - {fileID: 1100373}
+  - {fileID: 956285719}
   scoreToWin: 3
+  side: -1
 --- !u!1 &491821705
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,7 +535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &956285718
 RectTransform:
   m_ObjectHideFlags: 0
@@ -587,7 +588,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Player 1  Won!!!
+  m_Text: 
 --- !u!222 &956285720
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -766,6 +767,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 796756520026695639, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
+      propertyPath: m_TagString
+      value: Player 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
 --- !u!1 &1736475504
@@ -866,10 +871,10 @@ RectTransform:
   m_Father: {fileID: 1628104362}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -14.4, y: 167.45}
-  m_SizeDelta: {x: 80, y: 55.11}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -14.4, y: -65.55}
+  m_SizeDelta: {x: 80, y: 55.109985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2046152562
 MonoBehaviour:
@@ -978,6 +983,10 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 796756520026695639, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
       propertyPath: m_Name
+      value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 796756520026695639, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
+      propertyPath: m_TagString
       value: Player 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -182,6 +182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6736325163431669105, guid: 44ebbf06ad0cf4f41b197aba5560f2dc, type: 3}
+      propertyPath: m_TagString
+      value: Player 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 142705343, guid: 44ebbf06ad0cf4f41b197aba5560f2dc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 44ebbf06ad0cf4f41b197aba5560f2dc, type: 3}
@@ -190,6 +194,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5999433930655909170, guid: 44ebbf06ad0cf4f41b197aba5560f2dc, type: 3}
   m_PrefabInstance: {fileID: 5488231330883211077}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &292513255 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5860366397002478922, guid: 44ebbf06ad0cf4f41b197aba5560f2dc, type: 3}
+  m_PrefabInstance: {fileID: 142670730}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d52ab35a965cf346b3aac243cd78cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &323600319
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,19 +505,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deadlyBall: {fileID: 6393960737328701621, guid: 1944683f2b8d87740b7a663bbafbe1c1, type: 3}
   frequency: 0.1
-  endOfGameTime: 300
   spawnSections:
   - {x: -10, y: 4}
   - {x: -10, y: -3}
   gameLength: 20
   playerScripts:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2031677107}
+  - {fileID: 292513255}
   playerScoreTexts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 824980867}
+  - {fileID: 1358951031}
+  - {fileID: 606758963}
+  - {fileID: 2061030606}
 --- !u!1 &606758961
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,9 +633,9 @@ RectTransform:
   m_Father: {fileID: 384806769}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.9, y: -172.57}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -5.9, y: 36.429993}
   m_SizeDelta: {x: 160, y: 104.864}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &824980867
@@ -781,9 +795,9 @@ RectTransform:
   m_Father: {fileID: 384806769}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 113.6, y: -171.16}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 113.6, y: 37.839996}
   m_SizeDelta: {x: 160, y: 102.0398}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1358951031
@@ -828,6 +842,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358951029}
   m_CullTransparentMesh: 1
+--- !u!114 &2031677107 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5860366397002478922, guid: 44ebbf06ad0cf4f41b197aba5560f2dc, type: 3}
+  m_PrefabInstance: {fileID: 5488231330883211077}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d52ab35a965cf346b3aac243cd78cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2057896367
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,10 +915,10 @@ RectTransform:
   m_Father: {fileID: 384806769}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -157.33, y: 199}
-  m_SizeDelta: {x: 462.8616, y: 38.395}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 242.67, y: -26}
+  m_SizeDelta: {x: 462.86157, y: 38.395004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2061030606
 MonoBehaviour:
@@ -994,6 +1019,10 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: c74b6c971165ec949855ec02aa42b17e, type: 3}
     - target: {fileID: 6736325163431669105, guid: 44ebbf06ad0cf4f41b197aba5560f2dc, type: 3}
       propertyPath: m_Name
+      value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6736325163431669105, guid: 44ebbf06ad0cf4f41b197aba5560f2dc, type: 3}
+      propertyPath: m_TagString
       value: Player 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

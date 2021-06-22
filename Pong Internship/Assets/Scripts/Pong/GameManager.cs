@@ -5,72 +5,53 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    #region Serialized Variables
-    [SerializeField]
-    private GameObject ballObject;
+    public GameObject ballObject;
+    public Text[] scoreText;
+    public int scoreToWin = 10;
+    public int side = -1;
 
-    [SerializeField]
-    private Text[] scoreText;
+    private int goalCountPlayerOne = 0;
+    private int goalCountPlayerTwo = 0;
+    private Transform ballTransform;
 
-    [SerializeField]
-    private int scoreToWin = 10;
-    #endregion
-
-    #region Variables
-    private Vector2 goalCount = new Vector2(0,0);
-
-    private int side = -1;
-    #endregion
-
-    #region Awake - Update
     private void Awake() 
     {
-        Instantiate(ballObject);
-
-        scoreText[0] = transform.Find("Canvas").transform.Find("Player 1 Score").GetComponent<Text>();
-        scoreText[1] = transform.Find("Canvas").transform.Find("Player 2 Score").GetComponent<Text>();
-        scoreText[2] = transform.Find("Canvas").transform.Find("End Game").GetComponent<Text>();
+        Instantiate(ballObject,transform.position,Quaternion.identity);
+        ballTransform = ballObject.transform;
     }
+
     void Update()
     {
-        scoreText[0].text = "" + goalCount.x;
-        scoreText[1].text = "" + goalCount.y; 
+        scoreText[0].text = "" + goalCountPlayerOne;
+        scoreText[1].text = "" + goalCountPlayerTwo; 
     }
-    #endregion
 
     public void Goal(int side)
     {
+        Vector3 ballPosition = ballTransform.position;
+
         //Check the side that scored, see if the game score limit is reached and display the text or spawn a new ball. 
-        if(side == -1)
+        if(side > 0)
         {
-            goalCount.x++;
-            this.side = 1;
+            goalCountPlayerOne++;
         }
         else
         {
-            goalCount.y++;
-            this.side = -1;
+            goalCountPlayerTwo++;
         }
 
-        if(goalCount.x < scoreToWin && goalCount.y < scoreToWin)
-            Instantiate(ballObject);
+        if(goalCountPlayerOne < scoreToWin && goalCountPlayerTwo < scoreToWin)
+            Instantiate(ballObject,transform.position,Quaternion.identity);
         else
         {
-            if(goalCount.x > goalCount.y)
+            if(goalCountPlayerOne > goalCountPlayerTwo)
             {
-                scoreText[2].gameObject.SetActive(true);
                 scoreText[2].text = "Player 1   Won!!!";
             }
             else
             {
-                scoreText[2].gameObject.SetActive(true);
                 scoreText[2].text = "Player 2   Won!!!";
             }
         }
-    }
-
-    public int GetSide()
-    {
-        return side;
     }
 }

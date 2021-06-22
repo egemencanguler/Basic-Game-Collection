@@ -2,26 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PongPlayerInputController : MonoBehaviour
 {
     public float playerSpeed = 25f;
     public bool playerOne = true;
+    public int fieldMoveLimit = 5;
+    private float horizontal;
 
-    public Camera mainCamera;
-    private float vertical;
-    private float cameraBorder;
-
-    private void Awake() 
-    {
-        mainCamera = Camera.main;
-        //Get camera size to limit the movement of the player
-        cameraBorder = mainCamera.orthographicSize;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        Vector3 vector = ((Vector3.up * cameraBorder) - transform.position);
+        Vector3 vector = ((Vector3.forward * fieldMoveLimit) - transform.position);
 
         // -1 or 0 or 1 for vertical direction for input
         switch(playerOne)
@@ -29,43 +19,43 @@ public class Player : MonoBehaviour
             case true:
                 if(Input.GetKey(KeyCode.W))
                 {
-                    vertical = 1;
+                    horizontal = 1;
                 }
                 
                 if(Input.GetKey(KeyCode.S))
                 {
-                    vertical = -1;
+                    horizontal = -1;
                 }
 
                 if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
                 {
-                    vertical = 0;
+                    horizontal = 0;
                 }
                 break;
             case false:
                 if(Input.GetKey(KeyCode.UpArrow))
                 {
-                    vertical = 1;
+                    horizontal = 1;
                 }
                 
                 if(Input.GetKey(KeyCode.DownArrow))
                 {
-                    vertical = -1;
+                    horizontal = -1;
                 }
                 if(!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
                 {
-                    vertical = 0;
+                    horizontal = 0;
                 }
                 break;
         }
 
         //Stop at borders
-        if(vertical == 1 && vector.y < transform.localScale.y/2 || vertical == -1 && vector.y > cameraBorder * 2 -transform.localScale.y/2 )
+        if(horizontal == 1 && vector.z < transform.localScale.z/2 || horizontal == -1 && vector.z > fieldMoveLimit * 2 -transform.localScale.z/2)
         {
-            vertical = 0;
+            horizontal = 0;
         }
 
-        gameObject.transform.position += Vector3.up * playerSpeed * vertical * Time.deltaTime;
+        gameObject.transform.position += Vector3.forward * playerSpeed * horizontal * Time.deltaTime;
         
     }
 }
