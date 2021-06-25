@@ -3,7 +3,7 @@ A Unity project made without the physics engine. Project contains basic arcade g
 
 This is an intership game collection where I learn and get used to make games with self-made physics. (No rigidbodies, colliders, raycasting, etc.)
 
-The Game Added So Far:
+The Games Added So Far:
 
 1- Pong 2D
 
