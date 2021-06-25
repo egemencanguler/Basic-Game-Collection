@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4470957182292942152}
   - component: {fileID: 574803315069506771}
-  - component: {fileID: 4213872761880395421}
+  - component: {fileID: 8437836637150218757}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4213872761880395421
+--- !u!114 &8437836637150218757
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,10 +92,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6393960737328701621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3beb7afdad9d6154d9f49371c72b8c6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 30770e8325ae8004c9eddfe46bb1778d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSpeed: 2
+  ballSpeed: 5
   ballsParents: {fileID: 0}
   playerTransforms:
   - {fileID: 0}

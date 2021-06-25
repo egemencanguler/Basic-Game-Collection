@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 866125127712079757}
   - component: {fileID: 6402992637371889224}
   m_Layer: 0
-  m_Name: Player 1 3D
-  m_TagString: Player 1
+  m_Name: Player 3D
+  m_TagString: Player 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 866125127712079752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 1, z: 1.75}
+  m_LocalScale: {x: 0.35, y: 1, z: 1.75}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -94,6 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8be9bbd9d04df94e9612bd9f4e4e628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 25
-  playerOne: 1
-  mainCamera: {fileID: 0}
+  playerSpeed: 20
+  playerOne: 0
+  fieldMoveLimit: 5

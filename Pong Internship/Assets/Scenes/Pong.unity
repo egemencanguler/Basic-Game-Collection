@@ -254,8 +254,11 @@ MonoBehaviour:
   - {fileID: 2046152562}
   - {fileID: 1100373}
   - {fileID: 956285719}
-  scoreToWin: 3
+  scoreToWin: 100
   side: -1
+  isBallTest: 0
+  isEndlessMode: 1
+  prototypeSpawnPoint: {x: 0, y: 3, z: 0}
 --- !u!1 &491821705
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,12 +719,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 796756520026695632, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 796756520026695632, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 796756520026695632, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7
+      value: 7.35
       objectReference: {fileID: 0}
     - target: {fileID: 796756520026695632, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -763,6 +770,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 796756520026695633, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
+      propertyPath: playerSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 796756520026695639, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
       propertyPath: m_Name
       value: Player 2
@@ -930,12 +941,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 796756520026695632, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 796756520026695632, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 796756520026695632, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: -7.35
       objectReference: {fileID: 0}
     - target: {fileID: 796756520026695632, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -984,6 +999,10 @@ PrefabInstance:
     - target: {fileID: 796756520026695639, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
       propertyPath: m_Name
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 796756520026695639, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 796756520026695639, guid: 7031dd1f3ff79c1439a6829db378097e, type: 3}
       propertyPath: m_TagString

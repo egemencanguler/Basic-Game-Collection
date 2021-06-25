@@ -227,7 +227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56943420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1497724724}
@@ -255,6 +255,9 @@ MonoBehaviour:
   - {fileID: 956285719}
   scoreToWin: 3
   side: -1
+  isBallTest: 0
+  isEndlessMode: 1
+  prototypeSpawnPoint: {x: 0, y: 0, z: 0}
 --- !u!1 &355077063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,14 +1132,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 866125127712079759, guid: 0f26b8e6d9550ce48b3749ca1ac6efb6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 866125127712079759, guid: 0f26b8e6d9550ce48b3749ca1ac6efb6, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 866125127712079759, guid: 0f26b8e6d9550ce48b3749ca1ac6efb6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7
       objectReference: {fileID: 0}
@@ -1174,10 +1169,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 866125127712079759, guid: 0f26b8e6d9550ce48b3749ca1ac6efb6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6402992637371889224, guid: 0f26b8e6d9550ce48b3749ca1ac6efb6, type: 3}
-      propertyPath: playerOne
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1489,7 +1480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700932930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 491821706}
@@ -1837,6 +1828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1 3D
       objectReference: {fileID: 0}
+    - target: {fileID: 866125127712079752, guid: 0f26b8e6d9550ce48b3749ca1ac6efb6, type: 3}
+      propertyPath: m_TagString
+      value: Player 1
+      objectReference: {fileID: 0}
     - target: {fileID: 866125127712079759, guid: 0f26b8e6d9550ce48b3749ca1ac6efb6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1880,6 +1875,10 @@ PrefabInstance:
     - target: {fileID: 866125127712079759, guid: 0f26b8e6d9550ce48b3749ca1ac6efb6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6402992637371889224, guid: 0f26b8e6d9550ce48b3749ca1ac6efb6, type: 3}
+      propertyPath: playerOne
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f26b8e6d9550ce48b3749ca1ac6efb6, type: 3}

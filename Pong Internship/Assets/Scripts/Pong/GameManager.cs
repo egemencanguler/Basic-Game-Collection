@@ -10,13 +10,20 @@ public class GameManager : MonoBehaviour
     public int scoreToWin = 10;
     public int side = -1;
 
+    public bool isBallTest = false;
+    public bool isEndlessMode = false;
+    public Vector3 prototypeSpawnPoint = new Vector3(0f,0f,0f);
+
     private int goalCountPlayerOne = 0;
     private int goalCountPlayerTwo = 0;
     private Transform ballTransform;
 
     private void Awake() 
     {
-        Instantiate(ballObject,transform.position,Quaternion.identity);
+        if(!isBallTest)
+            Instantiate(ballObject,transform.position,Quaternion.identity);
+        else
+            Instantiate(ballObject,prototypeSpawnPoint,Quaternion.identity);
         ballTransform = ballObject.transform;
     }
 
@@ -40,17 +47,23 @@ public class GameManager : MonoBehaviour
             goalCountPlayerTwo++;
         }
 
-        if(goalCountPlayerOne < scoreToWin && goalCountPlayerTwo < scoreToWin)
-            Instantiate(ballObject,transform.position,Quaternion.identity);
-        else
+        if(!isEndlessMode)
         {
-            if(goalCountPlayerOne > goalCountPlayerTwo)
-            {
-                scoreText[2].text = "Player 1   Won!!!";
-            }
+            if(goalCountPlayerOne < scoreToWin && goalCountPlayerTwo < scoreToWin)
+                        if(!isBallTest)
+                            Instantiate(ballObject,transform.position,Quaternion.identity);
+                        else
+                            Instantiate(ballObject,prototypeSpawnPoint,Quaternion.identity);
             else
             {
-                scoreText[2].text = "Player 2   Won!!!";
+                if(goalCountPlayerOne > goalCountPlayerTwo)
+                {
+                    scoreText[2].text = "Player 1   Won!!!";
+                }
+                else
+                {
+                    scoreText[2].text = "Player 2   Won!!!";
+                }
             }
         }
     }
