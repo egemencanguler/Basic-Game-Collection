@@ -13,6 +13,8 @@ The Games Added So Far:
 
 4- Space Race 3D
 
+5- Space Invaders 3D
+
 Asset Credits:
 
 1- Cosmic skybox: https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633
