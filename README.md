@@ -1,5 +1,5 @@
 # Basic-Game-Collection
-A Unity project made without the physics engine. Project contains basic arcade games.
+A project in Unity made without the physics engine. Project contains basic arcade games.
 
 This is an intership game collection where I learn and get used to make games with self-made physics. (No rigidbodies, colliders, raycasting, etc.)
 
