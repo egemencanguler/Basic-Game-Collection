@@ -15,9 +15,9 @@ The Games Added So Far:
 
 5- Space Invaders 3D
 
-6- Snake (Grid System)
+6- Snake (Grid System) 2D
 
-7- Snake (Continuous)
+7- Snake (Continuous) 2D
 
 Asset Credits:
 
