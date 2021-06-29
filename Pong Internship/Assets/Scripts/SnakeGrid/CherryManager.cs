@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CherryManager : MonoBehaviour
 {
-    public SnakeManager snakeManager;
+    public SnakeManagerGridless snakeManager;
     public GameObject cherryObject;
     public GameObject snakeHead;
     public int row = 10;

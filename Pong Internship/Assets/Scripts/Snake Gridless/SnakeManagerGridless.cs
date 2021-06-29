@@ -6,51 +6,26 @@ using UnityEngine.UI;
 public class SnakeManagerGridless : MonoBehaviour
 {
     public GameObject snakeTile;
-    public List<GameObject> snakeTiles = new List<GameObject>();
-
+    public List<SnakeTiles> snakeTiles = new List<SnakeTiles>();
     public Text endGame;
-    public SnakePlayer snakeHead;
+    public SnakePlayerGridless snakeHead;
     public bool spawnNew = false;
     public int snakeSize = 1;
     public int score = 0;
 
-    private void Update() 
-    {
-        DestroySnake();
-    }
-    public void ScaleSnake()
-    {
-        Vector3 newSpawnLocation = snakeHead.transform.position - snakeHead.direction;
-        GameObject newTile = Instantiate(snakeTile,newSpawnLocation,Quaternion.identity);
-        snakeTiles.Add(newTile);
-        newTile.transform.parent = transform;
-        spawnNew = false;
-    }
-
-    public void DeleteExtraTiles(ref int movedSize)
-    {
-        if(movedSize >= snakeSize)
-        {
-            Destroy(snakeTiles[0]);
-            snakeTiles.RemoveAt(0);
-            movedSize = snakeSize - 1;
-        }
-    }
-
-    public void DestroySnake()
-    {
-        for(int i = 0; i < snakeTiles.Count;i++)
-        {
-            if(snakeHead.transform.position == snakeTiles[i].transform.position)
-            {
-                endGame.text = "Game Over | Score: " + score;
-                Destroy(gameObject);
-            }
-        }
-    }
-
     public void IncreaseSize()
     {
-        snakeSize++;
+        //If its the tile after the head the program behaves differently since the head is already a part of the program, spawn the new tile after the first one behind the tale tile
+        //Adjust parents and ID's of tiles
+        GameObject newTile;
+        if(snakeTiles.Count == 0)
+            newTile = Instantiate(snakeTile,snakeHead.prevSpawnPos,Quaternion.identity);
+        else
+        {
+            newTile = Instantiate(snakeTile,snakeTiles[snakeTiles.Count - 1].prevPos,Quaternion.identity);
+            newTile.GetComponent<SnakeTiles>().tileId = snakeTiles.Count;
+        }
+        snakeTiles.Add(newTile.GetComponent<SnakeTiles>());
+        newTile.transform.parent = transform;
     }
 }

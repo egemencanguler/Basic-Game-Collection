@@ -5,13 +5,10 @@ using UnityEngine;
 public class CherryManagerGridless : MonoBehaviour
 {
     public SnakeManagerGridless snakeManager;
-    public GameObject cherryObject;
     public GameObject snakeHead;
     public int row = 10;
     public int column = 20;
     public int scoreIncrease = 10;
-
-    private float timer = 0f;
     private Vector3 spawnLocation = Vector3.zero;
 
     private void Update() 
@@ -23,6 +20,7 @@ public class CherryManagerGridless : MonoBehaviour
         int sideRow = Random.Range(0,row);
         int sideColumn =  Random.Range(0,column);
 
+        //Check for borders to spawn
         if(sideRow < row/2)
         {
             if(sideColumn < column/2)
@@ -48,6 +46,7 @@ public class CherryManagerGridless : MonoBehaviour
 
         GameObject newCherry = Instantiate(this.gameObject,spawnLocation,Quaternion.identity);
 
+        //Do not spawn at the position of any snake tile
         for(int i = 0; i < snakeManager.snakeTiles.Count;i++)
         {
             if(spawnLocation == snakeManager.snakeTiles[i].transform.position)
@@ -60,6 +59,7 @@ public class CherryManagerGridless : MonoBehaviour
     }
     void EatCherry()
     {
+        //Cherry collision with the snake head
         if(snakeHead != null)
         {
             if((transform.position - snakeHead.transform.position).magnitude <= transform.localScale.x/2)

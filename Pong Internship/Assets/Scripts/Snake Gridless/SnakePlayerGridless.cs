@@ -5,112 +5,73 @@ using UnityEngine;
 public class SnakePlayerGridless : MonoBehaviour
 {
     public float speed = 1f;
-    public float frequency = 1f;
     public Vector3 direction = Vector3.right;
-    public int moveSize = 0;
-    public SnakeManagerGridless snakeManager;
-    public int row = 10;
-    public int column = 20;
     public int cameraYBorder = 5;
     public int cameraXBorder = 10;
-
-
+    public Vector3 prevSpawnPos = Vector3.zero;
+    public Vector3 prevDir = Vector3.zero;
     private float timer = 0f;
+
+    private void Start() 
+    {
+        prevSpawnPos = transform.position;    
+    }
 
     void Update()
     {
-        PlayerInput();
         Move();
-    }
-
-    void PlayerInput()
-    {
-        if(Input.GetKeyDown(KeyCode.W) && direction != -Vector3.up)
-        {
-            direction = Vector3.up;
-        }
-        else if(Input.GetKeyDown(KeyCode.S) && direction != Vector3.up)
-        {
-            direction = -Vector3.up;
-        }
-
-        if(Input.GetKeyDown(KeyCode.D) && direction != -Vector3.right)
-        {
-            direction = Vector3.right;
-        }
-        else if(Input.GetKeyDown(KeyCode.A) && direction != Vector3.right)
-        {
-            direction = -Vector3.right;
-        }
     }
     void Move()
     {
-        //(Border Limit)
-        if(Time.time - timer >= frequency)
-        {
-            timer = Time.time;
-            if(Mathf.Abs(transform.position.y) < cameraYBorder && Mathf.Abs(transform.position.x) < cameraXBorder)
-            {
-                transform.position += direction * speed * Time.deltaTime;
-            }
-            else if(Mathf.Abs(transform.position.y) > cameraYBorder)
-            {
-                if(transform.position.y < 0f)
-                    transform.position = new Vector3(transform.position.x, cameraYBorder - 0.5f,0f);
-                else
-                {
-                    transform.position = new Vector3(transform.position.x, -cameraYBorder + 0.5f,0f);
-                }
-            }
-            else if(Mathf.Abs(transform.position.x) > cameraXBorder)
-            {
-                if(transform.position.x < 0f)
-                {
-                    transform.position = new Vector3(cameraXBorder - 0.5f, transform.position.y,0f);
-                }
-                else
-                {
-                    transform.position = new Vector3(-cameraXBorder + 0.5f, transform.position.y,0f);
-                }
-            }
+        //Take the direction for the tale tiles
+        prevDir =  direction;
+        //Mouse position to direct the snake
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
+        direction = (mousePosition- transform.position).normalized;
+        //Change the direction of the head towards the mouse
+        transform.right = direction;
 
-            moveSize++;
-            snakeManager.ScaleSnake();
-            snakeManager.DeleteExtraTiles(ref moveSize);
+        //Check if the snake is in boundaries and move the snake head
+        if(Mathf.Abs(transform.position.y) < cameraYBorder && Mathf.Abs(transform.position.x) < cameraXBorder)
+        {
+            transform.position += direction * speed * Time.deltaTime;
+        }
+        //This section makes the snake head move boundary to boundary
+        else if(Mathf.Abs(transform.position.y) > cameraYBorder)
+        {
+            if(transform.position.y < 0f)
+            {
+                transform.position = new Vector3(transform.position.x, cameraYBorder - 0.5f,0f);
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x, -cameraYBorder + 0.5f,0f);
+            }
+        }
+        else if(Mathf.Abs(transform.position.x) > cameraXBorder)
+        {
+            if(transform.position.x < 0f)
+            {
+                transform.position = new Vector3(cameraXBorder - 0.5f, transform.position.y,0f);
+            }
+            else
+            {
+                transform.position = new Vector3(-cameraXBorder + 0.5f, transform.position.y,0f);
+            }
+        }
+
+        //Where the first tale will be spawned
+        if((prevSpawnPos - transform.position).magnitude > transform.localScale.x/2)
+        {
+            prevSpawnPos = transform.position;
         }
     }
 
     private void OnDrawGizmos() 
     {
-        Gizmos.color = Color.blue;
-        for(int a = 0; a < row; a++)
-        {
-            for (int i = 0; i < column; i++)
-            {
-                if(a < row/2)
-                {
-                    if(i < column/2)
-                    {
-                        Gizmos.DrawWireCube(new Vector3(0.5f + i,0.5f + a,0),new Vector3(1,1,0));
-                    }
-                    else
-                    {
-                        Gizmos.DrawWireCube(new Vector3((column/2 - 0.5f) - i,0.5f + a,0),new Vector3(1,1,0));
-                    }
-                }
-                else
-                {
-                    if(i < column/2)
-                    {
-                        Gizmos.DrawWireCube(new Vector3(0.5f + i,(row/2 - 0.5f) - a,0),new Vector3(1,1,0));
-                    }
-                    else
-                    {
-                        Gizmos.DrawWireCube(new Vector3((column/2 - 0.5f) - i,(row/2 - 0.5f) - a,0),new Vector3(1,1,0));
-                    }
-                }
-            }
-        }
-
+        Vector3 mousePositionSnake = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position,prevSpawnPos);
     }
 }
