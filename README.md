@@ -15,6 +15,10 @@ The Games Added So Far:
 
 5- Space Invaders 3D
 
+6- Snake (Grid System)
+
+7- Snake (Continuous)
+
 Asset Credits:
 
 1- Cosmic skybox: https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633
