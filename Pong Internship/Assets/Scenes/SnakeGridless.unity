@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 183237635}
-  - component: {fileID: 183237634}
   m_Layer: 0
   m_Name: Snake Parent
   m_TagString: Untagged
@@ -140,25 +139,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &183237634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183237633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 482bacfc0a9220e408271454c236a7e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  snakeTile: {fileID: 917520634531640768, guid: c7b408a1c70cd1a4c988ab9988738c1e, type: 3}
-  snakeTiles: []
-  endGame: {fileID: 544897103}
-  snakeHead: {fileID: 1184385313}
-  spawnNew: 0
-  snakeSize: 1
-  score: 0
 --- !u!4 &183237635
 Transform:
   m_ObjectHideFlags: 0
@@ -172,6 +152,7 @@ Transform:
   m_Children:
   - {fileID: 941736152}
   - {fileID: 1184385315}
+  - {fileID: 577076197}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -254,6 +235,113 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 544897101}
   m_CullTransparentMesh: 1
+--- !u!1 &577076196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 577076197}
+  - component: {fileID: 577076199}
+  - component: {fileID: 577076198}
+  m_Layer: 0
+  m_Name: Snake New
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &577076197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577076196}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5, y: -0.573, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 183237635}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &577076198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577076196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ab9c868a23eda4db656e164f234622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snakeHeadObject: {fileID: 577076196}
+  snakeTile: {fileID: 917520634531640768, guid: c7b408a1c70cd1a4c988ab9988738c1e, type: 3}
+  snakeTiles: []
+  snakeDirection: {x: 0, y: 0, z: 0}
+  cameraYBorder: 10
+  cameraXBorder: 18
+  snakeSpeed: 5
+  prevDir: {x: 0, y: 0, z: 0}
+  spawnPos: {x: 0, y: 0, z: 0}
+  newTileBool: 0
+  newRemoveTarget: 0
+  prevPosLim: 1000
+--- !u!212 &577076199
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577076196}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &800385441
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +476,8 @@ MonoBehaviour:
   direction: {x: 1, y: 0, z: 0}
   cameraYBorder: 5
   cameraXBorder: 10
-  prevSpawnPos: {x: 0, y: 0, z: 0}
+  spawnPos: {x: 0, y: 0, z: 0}
+  prevPos: []
   prevDir: {x: 0, y: 0, z: 0}
 --- !u!212 &941736151
 SpriteRenderer:
@@ -539,7 +628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1184385313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,7 +645,8 @@ MonoBehaviour:
   direction: {x: 1, y: 0, z: 0}
   cameraYBorder: 5
   cameraXBorder: 9
-  prevSpawnPos: {x: 0, y: 0, z: 0}
+  spawnPos: {x: 0, y: 0, z: 0}
+  prevPos: []
   prevDir: {x: 0, y: 0, z: 0}
 --- !u!212 &1184385314
 SpriteRenderer:
@@ -888,6 +978,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1926660420026151860, guid: dc4f9a441de5cf6419c37f0ebbf731a8, type: 3}
+      propertyPath: snakeHead
+      value: 
+      objectReference: {fileID: 577076196}
+    - target: {fileID: -1926660420026151860, guid: dc4f9a441de5cf6419c37f0ebbf731a8, type: 3}
+      propertyPath: snakeManager
+      value: 
+      objectReference: {fileID: 577076198}
     - target: {fileID: 427314527052276305, guid: dc4f9a441de5cf6419c37f0ebbf731a8, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -936,21 +1034,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cherry Gridless
       objectReference: {fileID: 0}
-    - target: {fileID: 7137511237853088850, guid: dc4f9a441de5cf6419c37f0ebbf731a8, type: 3}
-      propertyPath: column
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 7137511237853088850, guid: dc4f9a441de5cf6419c37f0ebbf731a8, type: 3}
-      propertyPath: snakeHead
-      value: 
-      objectReference: {fileID: 1184385312}
-    - target: {fileID: 7137511237853088850, guid: dc4f9a441de5cf6419c37f0ebbf731a8, type: 3}
-      propertyPath: cherryObject
-      value: 
-      objectReference: {fileID: 427314527052276310, guid: dc4f9a441de5cf6419c37f0ebbf731a8, type: 3}
-    - target: {fileID: 7137511237853088850, guid: dc4f9a441de5cf6419c37f0ebbf731a8, type: 3}
-      propertyPath: snakeManager
-      value: 
-      objectReference: {fileID: 183237634}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc4f9a441de5cf6419c37f0ebbf731a8, type: 3}

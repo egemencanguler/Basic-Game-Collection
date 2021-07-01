@@ -90,13 +90,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917520634531640768}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1da833dcb1e11144bbe38fdafb87430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   snakeManager: {fileID: 0}
-  prevPos: {x: 0, y: 0, z: 0}
+  spawnPos: {x: 0, y: 0, z: 0}
+  prevPos:
+  - {x: -2.6688478e-28, y: 9.8e-43, z: 5.235461e+22}
+  - {x: 0.00000016502305, y: 3.802586e-39, z: 9.78e-43}
+  - {x: 4.6e-44, y: 6.519402e-10, z: -2.6688478e-28}
   prevDir: {x: 0, y: 0, z: 0}
-  direction: {x: 0, y: 0, z: 0}
   tileId: 0

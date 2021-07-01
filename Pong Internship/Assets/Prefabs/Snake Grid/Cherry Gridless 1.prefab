@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 427314527052276305}
   - component: {fileID: 427314527052276304}
-  - component: {fileID: 7137511237853088850}
+  - component: {fileID: -1926660420026151860}
   m_Layer: 0
   m_Name: Cherry Gridless 1
   m_TagString: Untagged
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427314527052276310}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -100
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0.7735849, g: 0.15690638, b: 0.15690638, a: 1}
   m_FlipX: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7137511237853088850
+--- !u!114 &-1926660420026151860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,12 +92,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 427314527052276310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1fefbb3c4b30734bbea6511460bb896, type: 3}
+  m_Script: {fileID: 11500000, guid: 3aada8162ab665f4c885a6401e6ca4d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   snakeManager: {fileID: 0}
-  cherryObject: {fileID: 0}
   snakeHead: {fileID: 0}
   row: 10
-  column: 20
+  column: 18
   scoreIncrease: 10

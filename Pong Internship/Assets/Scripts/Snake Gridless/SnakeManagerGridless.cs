@@ -19,10 +19,10 @@ public class SnakeManagerGridless : MonoBehaviour
         //Adjust parents and ID's of tiles
         GameObject newTile;
         if(snakeTiles.Count == 0)
-            newTile = Instantiate(snakeTile,snakeHead.prevSpawnPos,Quaternion.identity);
+            newTile = Instantiate(snakeTile,snakeHead.spawnPos,Quaternion.identity);
         else
         {
-            newTile = Instantiate(snakeTile,snakeTiles[snakeTiles.Count - 1].prevPos,Quaternion.identity);
+            newTile = Instantiate(snakeTile,snakeTiles[snakeTiles.Count - 1].spawnPos,Quaternion.identity);
             newTile.GetComponent<SnakeTiles>().tileId = snakeTiles.Count;
         }
         snakeTiles.Add(newTile.GetComponent<SnakeTiles>());

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CherryManagerGridless : MonoBehaviour
 {
-    public SnakeManagerGridless snakeManager;
+    public SnakeGridlessManager snakeManager;
     public GameObject snakeHead;
     public int row = 10;
     public int column = 20;
@@ -62,10 +62,9 @@ public class CherryManagerGridless : MonoBehaviour
         //Cherry collision with the snake head
         if(snakeHead != null)
         {
-            if((transform.position - snakeHead.transform.position).magnitude <= transform.localScale.x/2)
+            if((transform.position - snakeManager.snakeHeadObject.transform.position).magnitude <= transform.localScale.x/2)
             {
                 snakeManager.IncreaseSize();
-                snakeManager.score += scoreIncrease;
                 SpawnCherry();
                 Destroy(gameObject);
             }

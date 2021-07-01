@@ -8,13 +8,14 @@ public class SnakePlayerGridless : MonoBehaviour
     public Vector3 direction = Vector3.right;
     public int cameraYBorder = 5;
     public int cameraXBorder = 10;
-    public Vector3 prevSpawnPos = Vector3.zero;
+    public Vector3 spawnPos = Vector3.zero;
+    public List<Vector3> prevPos = new List<Vector3>();
     public Vector3 prevDir = Vector3.zero;
     private float timer = 0f;
 
     private void Start() 
     {
-        prevSpawnPos = transform.position;    
+        spawnPos = transform.position;    
     }
 
     void Update()
@@ -23,12 +24,19 @@ public class SnakePlayerGridless : MonoBehaviour
     }
     void Move()
     {
+        if(prevPos.Count < 5000 && transform.parent.GetComponent<SnakeManagerGridless>().snakeTiles.Count > 0)
+        {
+            prevPos.Add(transform.position);
+        }
         //Take the direction for the tale tiles
         prevDir =  direction;
         //Mouse position to direct the snake
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
-        direction = (mousePosition- transform.position).normalized;
+        if((mousePosition - transform.position).magnitude > transform.localScale.x/2)
+        {
+            direction = (mousePosition- transform.position).normalized;
+        }
         //Change the direction of the head towards the mouse
         transform.right = direction;
 
@@ -60,18 +68,23 @@ public class SnakePlayerGridless : MonoBehaviour
                 transform.position = new Vector3(-cameraXBorder + 0.5f, transform.position.y,0f);
             }
         }
-
         //Where the first tale will be spawned
-        if((prevSpawnPos - transform.position).magnitude > transform.localScale.x/2)
+        if((spawnPos - transform.position).magnitude > transform.localScale.x/2)
         {
-            prevSpawnPos = transform.position;
+            spawnPos = transform.position;
         }
+
     }
 
     private void OnDrawGizmos() 
     {
         Vector3 mousePositionSnake = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Gizmos.color = Color.green;
-        Gizmos.DrawLine(transform.position,prevSpawnPos);
+        Gizmos.DrawLine(transform.position,spawnPos);
+        Gizmos.color = Color.red;
+        for(int a = 1; a < prevPos.Count; a++)
+        {
+            Gizmos.DrawLine(prevPos[a-1],prevPos[a]);
+        }
     }
 }
