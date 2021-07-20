@@ -5,11 +5,20 @@ using UnityEngine;
 public class CherryManagerGridless : MonoBehaviour
 {
     public SnakeGridlessManager snakeManager;
-    public GameObject snakeHead;
     public int row = 10;
     public int column = 20;
     public int scoreIncrease = 10;
     private Vector3 spawnLocation = Vector3.zero;
+    public List<SnakeGridlessManager> snakeHeads = new List<SnakeGridlessManager>();
+    
+    private void Awake() 
+    {
+        
+        foreach (GameObject snakeHead in GameObject.FindGameObjectsWithTag("Snake Head"))
+        {
+            snakeHeads.Add(snakeHead.GetComponent<SnakeGridlessManager>());
+        }
+    }
 
     private void Update() 
     {
@@ -60,13 +69,14 @@ public class CherryManagerGridless : MonoBehaviour
     void EatCherry()
     {
         //Cherry collision with the snake head
-        if(snakeHead != null)
+        for(int i = 0; i < snakeHeads.Count; i++)
         {
-            if((transform.position - snakeManager.snakeHeadObject.transform.position).magnitude <= transform.localScale.x/2)
+            if((transform.position - snakeHeads[i].transform.position).magnitude <= transform.localScale.x/2)
             {
-                snakeManager.IncreaseSize();
+                snakeHeads[i].IncreaseSize();
                 SpawnCherry();
                 Destroy(gameObject);
+                break;
             }
         }
     }

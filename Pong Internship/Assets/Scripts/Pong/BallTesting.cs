@@ -22,19 +22,16 @@ public class BallTesting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void FixedUpdate() 
     {
         Move(movementDirection, ballSpeed);
-
         Vector3 playerOnePosition = playerTransforms[0].position;
         Vector3 playerTwoPosition = playerTransforms[1].position;
 
         Vector3 playerOneScale = playerTransforms[0].localScale;
         Vector3 playerTwoScale = playerTransforms[1].localScale;
-
         Vector3 initialPosition = transform.position;
         Vector3 finalPosition = initialPosition + (movementDirection * Time.fixedDeltaTime) * ballSpeed;
 
