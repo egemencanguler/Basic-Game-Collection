@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SnakePlayer : MonoBehaviour
 {
+    // TODO herkesin birbirine eristigi 3 class var :(
+    
+    
     public float speed = 1f;
     public float frequency = 1f;
     public Vector3 direction = Vector3.right;

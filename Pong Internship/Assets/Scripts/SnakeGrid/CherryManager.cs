@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CherryManager : MonoBehaviour
 {
-    public SnakeManagerGridless snakeManager;
+    // TODO SnakeManagerGridlessti duzlettim
+    public SnakeManager snakeManager;
     public GameObject cherryObject;
     public GameObject snakeHead;
     public int row = 10;
@@ -23,6 +24,7 @@ public class CherryManager : MonoBehaviour
         int sideRow = Random.Range(0,row);
         int sideColumn =  Random.Range(0,column);
 
+        // TODO burda neler oluyor
         if(sideRow < row/2)
         {
             if(sideColumn < column/2)

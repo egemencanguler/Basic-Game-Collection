@@ -30,6 +30,9 @@ public class SnakeManager : MonoBehaviour
 
     public void DeleteExtraTiles(ref int movedSize)
     {
+        // TODO her kareket ettigimizde bi parcamizi yok etmek pek iyi bir fikir olmayabilir
+        // cok kisa birsuru fonkyon ve class birbirini dongu seklinde cagiriyor cok basit olan bu kodu karmasik hale getiriyor
+        
         if(movedSize >= snakeSize)
         {
             Destroy(snakeTiles[0]);
