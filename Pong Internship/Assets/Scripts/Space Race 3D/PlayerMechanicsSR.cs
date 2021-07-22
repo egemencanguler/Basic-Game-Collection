@@ -11,7 +11,7 @@ public class PlayerMechanicsSR : MonoBehaviour
     public float zBorderOffSetLimit;
     public float cameraZOffSet = 1f;
     public float gameStartDelay = 3f;
-    public Vector2 spawnPoint;
+    public Vector2 spawnPoint; // TODO niye public ve serialized atanan bisey oldugu zannedilebilir
     public float playerColliderRadius = 1f;
 
     public float cameraBordersXMax;
@@ -28,7 +28,9 @@ public class PlayerMechanicsSR : MonoBehaviour
 
     void Update()
     {
+        // TODO Fonksyona gerek yok birde inputu clamplemek yerine pozisyonu clamplesen daha sik boylece tam koseye yapisabiliriz
         MovementInput();
+        // TODO uzun degisken isimlerini mainCamera.transform.position yerine var camPos = mainCamera.transform.position yapabilirsin
         //if(Time.time >= gameStartDelay)
             transform.position += (Vector3.forward * vertical + Vector3.right * horizontal) * Time.deltaTime * playerSpeed;
             mainCamera.transform.position = new Vector3(mainCamera.transform.position.x,mainCamera.transform.position.y,transform.position.z - cameraZOffSet);
@@ -39,6 +41,29 @@ public class PlayerMechanicsSR : MonoBehaviour
     {
         //Vector3 vector = ((Vector3.up * cameraBorder) - transform.position);
         // -1 or 0 or 1 for vertical direction for input
+        // TODO neden switch case - bu tarz durumlarda suda yapilabilir
+        /*
+            public IPlayerInput
+                public (int,int) GetDirection();
+            
+            public Player1Input : IPlayerInput
+                public (int,int) GetDirection() -> uses wasd
+            
+            public Player2Input : IPlayerInput
+                public (int,int) GetDirection() -> uses arrows
+         
+            class Player
+                
+                // bunu disardan atayabilirsin mesela gamemanagerdan
+                public IPlayerInput inputHandler;
+                
+                void Update
+                    var input = inputHandler.GetDirection();
+                    
+            
+         
+         
+         */
         switch(playerOne)
         {
             case true:

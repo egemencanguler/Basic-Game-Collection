@@ -8,8 +8,8 @@ public class SpaceInvaderManager : MonoBehaviour
     public int rowNumber = 5;
     public float levelSpeed = 1;
     public float moveFrequency = 1;
-    public GameObject spaceInvader;
-    public float invaderXDistance = 1f;
+    public GameObject spaceInvader; // TODO prefab oldugunu belirtmek faydali olabilir spaceInvaderPrefab
+    public float invaderXDistance = 1f; // TODO invaderSizeX,invaderSizeZ or Vector2 invaderSize
     public float invaderZDistance = 1f;
     public Vector3 initialSpawnPoint;
     public List<GameObject> canBeShot = new List<GameObject>();

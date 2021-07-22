@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BallManagerSR : MonoBehaviour
 {
+    // TODO No one using ball manager - 2d version uses it but it is not ball manager but ball
+    
    [SerializeField]
     private float ballSpeed;
     [SerializeField]
@@ -16,6 +18,9 @@ public class BallManagerSR : MonoBehaviour
 
     private void Awake() 
     {
+        Debug.Break();
+        gameObject.name = "BallManager";
+        // TODO NEVER use find with object name
         ballsParents = GameObject.Find("Balls").transform;
 
         playerTransforms[0] = GameObject.Find("Player 1").transform;

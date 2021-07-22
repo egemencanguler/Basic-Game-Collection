@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpaceRaceBallManager : MonoBehaviour
 {
+    // TODO not ball manage but ball
     public float ballSpeed;
     public Transform ballsParents;
     public Transform[] playerTransforms;
@@ -40,6 +41,19 @@ public class SpaceRaceBallManager : MonoBehaviour
             Destroy(gameObject);
 
 
+        // TODO
+        /*
+            var ballPos = transform.position; // transform.position bi hesaplama yaptigi icin defalarca cagirmak iyi degil birde daha temiz boyle
+            
+            ayni kodu iki kez yazma
+            if CheckCollision(ballPos,playerTransform[0])
+                    // Kill Player1
+            
+            if CheckCollision(ballPos,playerTransform[1])
+                    // Kill Player2    
+          
+         
+         */
 
         if((transform.position - playerTransforms[0].position).magnitude <= transform.localScale.x/2 + playerTransforms[0].GetComponent<PlayerMechanicsSR>().playerColliderRadius)
         {

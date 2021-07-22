@@ -75,6 +75,7 @@ public class PlayerSR : MonoBehaviour
         }
 
         //Stop at borders
+        // TODO float == comparison visual studio uyarmiyormu, int yapabilirisn direk zaten int
         if(vertical == 1 && vector.y < transform.localScale.y/2 || vertical == -1 && vector.y > cameraBorder * 2 -transform.localScale.y/2 )
         {
             vertical = 0;

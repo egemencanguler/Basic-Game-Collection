@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameManagerSR : MonoBehaviour
 {
+    // TODO neden cift kamera var? - playeri takip ettigi icinmis
+    
     public GameObject deadlyBall;
     public float frequency;
     public Vector2[] spawnSections;
@@ -27,6 +29,7 @@ public class GameManagerSR : MonoBehaviour
         {
             SpawnDeadlyBalls(frequency);
             PlayerScore();
+            // TODO define another text timerText or timeText
             playerScoreTexts[3].text = "" + ((int)Time.time);
         }
         else
@@ -39,6 +42,18 @@ public class GameManagerSR : MonoBehaviour
 
     void SpawnDeadlyBalls(float freq)
     {
+        // TODO freq unused parameter
+        /*
+            fonkyonun icerisinde tek if kontrolu yapiyosam if !condition return 
+            seklinde yaziyorum bosuna indentation kullanmamis oluyoruz
+
+            lastTimeOfSpan -= Time.deltaTime;
+            if lastTimeOfSpan > 0
+                return
+            // Spawn
+         
+         */
+        
         //TIMER
         //Spawn in different points of an interval with a frequency
         lastTimeOfSpawn -= Time.deltaTime;
