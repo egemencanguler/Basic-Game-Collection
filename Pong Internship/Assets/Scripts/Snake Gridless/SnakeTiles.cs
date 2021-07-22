@@ -5,6 +5,7 @@ using UnityEngine;
 public class SnakeTiles : MonoBehaviour
 {
 
+    // TODO logci yanlis gorunuyor ama test edemedim patliyo, snakeler arasi mesafeyi nasil ayarladigimizida bulamadim
     public SnakeManagerGridless snakeManager;
     public Vector3 spawnPos = Vector3.zero;
     public List<Vector3> prevPos = new List<Vector3>();

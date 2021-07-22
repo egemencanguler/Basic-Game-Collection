@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SnakePlayerGridless : MonoBehaviour
 {
+    // TODO serialize edilmemesi gereken birsuru sey serialize edilmis durumda ya da kullanilmayan degiskenler public
+    
     public float speed = 1f;
     public Vector3 direction = Vector3.right;
     public int cameraYBorder = 5;
@@ -30,6 +32,7 @@ public class SnakePlayerGridless : MonoBehaviour
         }
         //Take the direction for the tale tiles
         prevDir =  direction;
+        // TODO birsuru transform.position var snakePos = transform.position;
         //Mouse position to direct the snake
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
@@ -37,6 +40,11 @@ public class SnakePlayerGridless : MonoBehaviour
         {
             direction = (mousePosition- transform.position).normalized;
         }
+        
+        // TODO neden donuyoruz hem yanlis donuyoruz hemde donmemize gerek varmi zaten yuvarlagiz?
+        // transform.rotation = Quaternion.Euler(0,0,Vector3.SignedAngle(Vector3.up,direction));
+        
+        
         //Change the direction of the head towards the mouse
         transform.right = direction;
 

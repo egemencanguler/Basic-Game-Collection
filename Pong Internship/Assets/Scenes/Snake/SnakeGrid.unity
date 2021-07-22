@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -717,7 +717,7 @@ PrefabInstance:
     - target: {fileID: 560372190, guid: f7ffc45fb7803cc4eb8b319334aa651c, type: 3}
       propertyPath: snakeManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 183237634}
     - target: {fileID: 873591297805992835, guid: f7ffc45fb7803cc4eb8b319334aa651c, type: 3}
       propertyPath: m_RootOrder
       value: 3

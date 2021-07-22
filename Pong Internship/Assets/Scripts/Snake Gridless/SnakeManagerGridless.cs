@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SnakeManagerGridless : MonoBehaviour
 {
+    // TODO delete unused ...
     public GameObject snakeTile;
     public List<SnakeTiles> snakeTiles = new List<SnakeTiles>();
     public Text endGame;
