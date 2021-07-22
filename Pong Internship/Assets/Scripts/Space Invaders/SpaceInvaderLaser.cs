@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SpaceInvaderLaser : MonoBehaviour
 {
+    // TODO olunce patliyor null ref
+    
+    
     public float colliderRadius = 0.5f;
     public float colliderHeight = 0.5f;
     public int direction = 0;
@@ -39,6 +42,10 @@ public class SpaceInvaderLaser : MonoBehaviour
 
     void Collision()
     {
+        // TODO iki farkli laser clasi yazilabilirdi bu direction trigi yerine PlayerLaser, EnemyLaser
+        // yukarda erisilmesi gereken degiskenlerde farkli asagidaki kodda farkli
+        // boyle durumlarda paylasilan kod ayri bi klasa yazilabilir
+        
         if(direction > 0)
         {
             //The collision with the invaders
@@ -53,6 +60,7 @@ public class SpaceInvaderLaser : MonoBehaviour
                 }
                 if(((potentialEnemies[a].transform.position) - (transform.position)).magnitude <= potentialEnemies[a].GetComponent<SpaceInvader>().invaderColliderRadius)
                 {
+                    // TODO bu if neden var?
                     if(potentialEnemies[a].GetComponent<SpaceInvader>())
                     {
                         SpaceInvader invader = potentialEnemies[a].GetComponent<SpaceInvader>();

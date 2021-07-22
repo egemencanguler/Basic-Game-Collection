@@ -68,6 +68,7 @@ public class SpaceInvaderManager : MonoBehaviour
                 {
                     continue;
                 }
+                // TODO sondaki null check anlamsiz zaten basta GetComponent yapmissin patlarsa orda patlar
                 else if(spaceInvaderHolder[a,i].GetComponent<SpaceInvader>().canShoot && !canBeShot.Contains(spaceInvaderHolder[a,i]) && spaceInvaderHolder[a,i] != null)
                 {
                     canBeShot.Add(spaceInvaderHolder[a,i]);
@@ -77,6 +78,9 @@ public class SpaceInvaderManager : MonoBehaviour
     }
     public void CanInvaderShoot()
     {
+        // TODO shootingTimer bunu bu clasa koy canShoot = true dedigin yerde ates et,
+        // TODO damage alabildiginide flaglemene gerek yok zaten damage alabilenler listen var
+        
         //Check if the array members of our multi dimensional array are infront of the other invaders. We check that if they are, in their column, the last member of the row. 
         int rowCanShoot = 0;
         for(int a = 0; a < columnNumber;a++)

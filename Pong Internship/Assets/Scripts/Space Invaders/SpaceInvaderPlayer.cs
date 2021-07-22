@@ -9,9 +9,9 @@ public class SpaceInvaderPlayer : MonoBehaviour
     public float maxXLimit;
     public float playerColliderRadius = 1f;
     public float shootingRate = 1f;
-    public GameObject playerLaser;
+    public GameObject playerLaser; // TODO sonuna prefab eklenebilir instantiate edilecegi belli olsun playerLaserPrefab
     public Transform shootingPoint;
-    public SpaceInvaderManager invaderManager;
+    public SpaceInvaderManager invaderManager; // TODO kullanilmayan degiskenleri kaldir 
     public int health = 3;
     private int horizontal = 0;
     private float shootTimer = 0f;
@@ -43,6 +43,7 @@ public class SpaceInvaderPlayer : MonoBehaviour
 
     void PlayerShoot()
     {
+        // TODO timer patterni 
         if(Input.GetKeyDown(KeyCode.Space) && Time.time - shootTimer >= shootingRate)
         {
             shootTimer = Time.time;
@@ -57,6 +58,7 @@ public class SpaceInvaderPlayer : MonoBehaviour
     }
     void Move(ref int horizontalInput, float playerRadius)
     {
+        // TODO inputu degil pozisyonu clample
         if(transform.position.x - playerRadius < minXLimit)
         {
             horizontalInput = Mathf.Clamp(horizontalInput,0,1);
